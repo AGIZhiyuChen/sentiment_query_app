@@ -1,0 +1,13 @@
+gradio==5.34.2
+openpyxl
+pandas
+numpy
+plotly
+matplotlib
+altair
+pyspark
+torch
+sentence_transformers
+databricks
+databricks-connect
+fuzzywuzzy

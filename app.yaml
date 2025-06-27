@@ -1,0 +1,38 @@
+# name: my_databricks_app
+
+# conda_env:
+#   channels:
+#     - defaults
+#   dependencies:
+#     - python=3.11 # deployment cluster (app) and spark connected cluster minor python minor versions should be the same
+#     - pip
+#     - pip:
+#         - -r requirements.txt
+
+# entry_points:
+#   main:
+#     command: ["uvicorn", "app:app"]
+# my_databricks_app.yaml
+
+name: my_databricks_app
+
+conda_env:
+  channels:
+    - defaults
+  dependencies:
+    - python=3.11  # deployment cluster and Spark cluster must match minor versions
+    - pip
+    - pip:
+        - -r requirements.txt
+
+# environment_variables:
+#   enable_queue: "true"
+
+entry_points:
+  main:
+    command:
+      - "uvicorn"
+      - "app:app"
+      - "--timeout"   # keep connections open for up to 300 s of inactivity
+      - "300"
+
